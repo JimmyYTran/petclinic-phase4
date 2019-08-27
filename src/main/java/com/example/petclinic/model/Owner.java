@@ -29,7 +29,7 @@ public class Owner {
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"owner","visits"})
+    @JsonIgnoreProperties({"owner","visits","hibernateLazyInitializer"})
     private List<Pet> pets = new ArrayList<>();
 
     protected Owner() {
