@@ -24,7 +24,7 @@ public class Pet {
     // Lazy fetch is better for performance than eager
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
-    @JsonIgnoreProperties("pets")
+    @JsonIgnoreProperties({"pets", "hibernateLazyInitializer"})
     private Owner owner;
 
     @OneToMany(

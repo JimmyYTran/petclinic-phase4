@@ -55,7 +55,7 @@ public class VetController implements BasicController<Vet> {
     }
 
     @Override
-    @GetMapping(value = "getAllPets", produces = "application/json")
+    @GetMapping(value = "getAllVets", produces = "application/json")
     public List<Vet> getAll() {
 
         return this.vetService.getAll();

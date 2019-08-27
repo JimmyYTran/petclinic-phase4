@@ -22,7 +22,7 @@ public class Vet {
     private List<Speciality> specialities = new ArrayList<>();
 
     @ManyToMany(mappedBy = "vets")
-    @JsonIgnoreProperties("vets")
+    @JsonIgnoreProperties({"vets", "hibernateLazyInitializer"})
     private Set<Visit> visits = new HashSet<>();
 
     protected Vet() {

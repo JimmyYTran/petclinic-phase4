@@ -31,7 +31,7 @@ public class Visit {
             joinColumns = @JoinColumn(name = "visit_id"),
             inverseJoinColumns = @JoinColumn(name = "vet_id")
     )
-    @JsonIgnoreProperties("visits")
+    @JsonIgnoreProperties({"visits", "hibernateLazyInitializer"})
     private Set<Vet> vets = new HashSet<>();
 
     protected Visit() {
