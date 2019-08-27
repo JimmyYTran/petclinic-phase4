@@ -1,5 +1,7 @@
 package com.example.petclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -16,6 +18,7 @@ public class Visit {
     // Lazy fetch is better for performance than eager
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pet_id")
+    @JsonIgnoreProperties("visits")
     private Pet pet;
 
     // Using the Visit as the owner of the relationship
@@ -28,6 +31,7 @@ public class Visit {
             joinColumns = @JoinColumn(name = "visit_id"),
             inverseJoinColumns = @JoinColumn(name = "vet_id")
     )
+    @JsonIgnoreProperties("visits")
     private Set<Vet> vets = new HashSet<>();
 
     protected Visit() {

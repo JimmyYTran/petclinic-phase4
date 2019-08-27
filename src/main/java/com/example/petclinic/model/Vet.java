@@ -1,5 +1,7 @@
 package com.example.petclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -20,6 +22,7 @@ public class Vet {
     private List<Speciality> specialities = new ArrayList<>();
 
     @ManyToMany(mappedBy = "vets")
+    @JsonIgnoreProperties("vets")
     private Set<Visit> visits = new HashSet<>();
 
     protected Vet() {
