@@ -20,28 +20,28 @@ public class PetController implements BasicController<Pet> {
 
     @Override
     @PostMapping(value = "addPet", produces = "application/json")
-    public Pet add(Pet pet) {
+    public Pet add(@RequestBody Pet pet) {
 
         return this.petService.add(pet);
     }
 
     @Override
-    @RequestMapping(value = "getPet", method = RequestMethod.GET, produces = "application/json")
-    public Pet get(Long id) {
+    @RequestMapping(value = "getPet/{id}", method = RequestMethod.GET, produces = "application/json")
+    public Pet get(@PathVariable("id") Long id) {
 
         return this.petService.get(id);
     }
 
     @Override
     @PutMapping(value = "modifyPet", produces = "application/json")
-    public Pet modify(Pet pet) {
+    public Pet modify(@RequestBody Pet pet) {
 
         return this.petService.modify(pet);
     }
 
     @Override
     @DeleteMapping(value = "deletePet", produces = "application/json")
-    public boolean delete(Pet pet) {
+    public boolean delete(@RequestBody Pet pet) {
 
         return this.petService.delete(pet);
     }

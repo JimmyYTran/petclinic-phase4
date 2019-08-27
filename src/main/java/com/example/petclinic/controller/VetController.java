@@ -20,28 +20,28 @@ public class VetController implements BasicController<Vet> {
 
     @Override
     @PostMapping(value = "addVet", produces = "application/json")
-    public Vet add(Vet vet) {
+    public Vet add(@RequestBody Vet vet) {
 
         return this.vetService.add(vet);
     }
 
     @Override
-    @GetMapping(value = "addVet", produces = "application/json")
-    public Vet get(Long id) {
+    @GetMapping(value = "addVet/{id}", produces = "application/json")
+    public Vet get(@PathVariable("id") Long id) {
 
         return this.vetService.get(id);
     }
 
     @Override
     @PutMapping(value = "modifyVet", produces = "application/json")
-    public Vet modify(Vet vet) {
+    public Vet modify(@RequestBody Vet vet) {
 
         return this.vetService.modify(vet);
     }
 
     @Override
     @DeleteMapping(value = "deleteVet", produces = "application/json")
-    public boolean delete(Vet vet) {
+    public boolean delete(@RequestBody Vet vet) {
 
         return this.vetService.delete(vet);
     }

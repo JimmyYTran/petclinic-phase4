@@ -20,28 +20,28 @@ public class VisitController implements BasicController<Visit> {
 
     @Override
     @PostMapping(value = "addVisit", produces = "application/json")
-    public Visit add(Visit visit) {
+    public Visit add(@RequestBody Visit visit) {
 
         return this.visitService.add(visit);
     }
 
     @Override
-    @GetMapping(value = "getVisit", produces = "application/json")
-    public Visit get(Long id) {
+    @GetMapping(value = "getVisit/{id}", produces = "application/json")
+    public Visit get(@PathVariable("id") Long id) {
 
         return this.visitService.get(id);
     }
 
     @Override
     @PutMapping(value = "modifyVisit", produces = "application/json")
-    public Visit modify(Visit visit) {
+    public Visit modify(@RequestBody Visit visit) {
 
         return this.visitService.modify(visit);
     }
 
     @Override
     @DeleteMapping(value = "deleteVisit", produces = "application/json")
-    public boolean delete(Visit visit) {
+    public boolean delete(@RequestBody Visit visit) {
 
         return this.visitService.delete(visit);
     }
