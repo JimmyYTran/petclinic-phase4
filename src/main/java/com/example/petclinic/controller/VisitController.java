@@ -2,8 +2,10 @@ package com.example.petclinic.controller;
 
 import com.example.petclinic.model.Visit;
 import com.example.petclinic.service.VisitService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -29,7 +31,13 @@ public class VisitController implements BasicController<Visit> {
     @GetMapping(value = "getVisit/{id}", produces = "application/json")
     public Visit get(@PathVariable("id") Long id) {
 
-        return this.visitService.get(id);
+        Visit visit = null;
+        try {
+            visit = this.visitService.get(id);
+        } catch (Exception exc) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Owner [" + id + "] Not Found", exc);
+        }
+        return visit;
     }
 
     @Override
