@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 @Entity(name = "Owner")
 @Table(name = "owner")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Owner {
 
     @Id

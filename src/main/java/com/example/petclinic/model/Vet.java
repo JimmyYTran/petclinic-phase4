@@ -7,6 +7,7 @@ import java.util.*;
 
 @Entity(name = "Vet")
 @Table(name = "vet")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Vet {
 
     @Id

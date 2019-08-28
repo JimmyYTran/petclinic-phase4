@@ -1,5 +1,6 @@
 package com.example.petclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -11,6 +12,7 @@ import java.util.Objects;
 
 @Entity(name = "Pet")
 @Table(name = "pet")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Pet {
 
     @Id
@@ -18,6 +20,7 @@ public class Pet {
     private Long id;
 
     private String name;
+
     private Date birthDate;
     private PetType petType;
 

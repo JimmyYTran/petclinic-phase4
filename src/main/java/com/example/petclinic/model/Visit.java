@@ -1,5 +1,6 @@
 package com.example.petclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -7,11 +8,13 @@ import java.util.*;
 
 @Entity(name = "Visit")
 @Table(name = "visit")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Visit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private Date dateOfVisit;
     private String description;
 
